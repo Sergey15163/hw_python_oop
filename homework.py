@@ -123,8 +123,8 @@ def read_package(workout_type: str, data: list[float]) -> Training:
         'RUN': Running,
         'WLK': SportsWalking
     }
-    if workout_type not in workout_types:
-        print('Неизвестный тип тренировки')
+    if workout_type not in workout_types.keys():
+        raise ValueError('Неизвестный тип тренировки')
     return workout_types[workout_type](*data)
 
 
